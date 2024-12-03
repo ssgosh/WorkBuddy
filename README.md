@@ -9,7 +9,6 @@ Blocks webpages unrelated to work based on page content
     - [Extension](#extension)
     - [Server](#server)
 
----
 
 ## MVP Features
 
