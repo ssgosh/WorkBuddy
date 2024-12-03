@@ -35,4 +35,7 @@ It'll use LangChain to connect with ChatGPT or some other LLM.
 
 ## Even more minimal features (CLI invocation)
 
-- 
+- Receive input from stdin. 
+- Send request to OpenAI and classify as "work" or "non-work", and get explanation as json : { "category" : "", "explanation" : ""}
+- Print the category and the explanation
+- Continue receiving more input from the user
