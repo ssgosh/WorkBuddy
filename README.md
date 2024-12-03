@@ -8,7 +8,7 @@ Blocks webpages unrelated to work based on page content
   - [MVP Features](#mvp-features)
     - [Extension](#extension)
     - [Server](#server)
-
+  - [Even more minimal features (CLI invocation)](#even-more-minimal-features-cli-invocation)
 
 ## MVP Features
 
@@ -29,4 +29,10 @@ It'll use LangChain to connect with ChatGPT or some other LLM.
 
 - Run on Flask
 - No auth needed as of now
-- Should wait for
+- REST API
+  - POST /classify, with json content, containing { "page_title" : "", "page_body" : "", page_url : "" }
+  - In response, return {"category" : "", "explanation"}
+
+## Even more minimal features (CLI invocation)
+
+- 
