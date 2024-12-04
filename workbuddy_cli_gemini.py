@@ -1,6 +1,9 @@
 import os
 import google.generativeai as genai
+from dotenv import load_dotenv
+# import readline
 
+load_dotenv()
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
 # Create the model
@@ -9,7 +12,8 @@ generation_config = {
   "top_p": 0.95,
   "top_k": 40,
   "max_output_tokens": 8192,
-  "response_mime_type": "text/plain",
+#   "response_mime_type": "text/plain",
+  "response_mime_type": "application/json",
 }
 
 model = genai.GenerativeModel(
@@ -35,6 +39,21 @@ chat_session = model.start_chat(
   ]
 )
 
-response = chat_session.send_message("INSERT_INPUT_HERE")
-
-print(response.text)
+exit = False
+while not exit:
+    print('Enter JSON {"page_title" : "", "page_url" : "", "page_content" : ""}')
+    lines = []
+    while True:
+        try:
+            line = input()
+            lines.append(line)
+        except EOFError:
+            break
+        except KeyboardInterrupt:
+            exit = True
+            break
+    if not exit:
+        msg = '\n'.join(lines)
+        response = chat_session.send_message(msg)
+        print(response.text)
+    
