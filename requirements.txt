@@ -1,31 +1,32 @@
-annotated-types==0.7.0
-cachetools==5.5.0
-certifi==2024.8.30
-charset-normalizer==3.4.0
-google-ai-generativelanguage==0.6.10
-google-api-core==2.23.0
-google-api-python-client==2.154.0
-google-auth==2.36.0
-google-auth-httplib2==0.2.0
 google-generativeai==0.8.3
-googleapis-common-protos==1.66.0
-grpcio==1.68.1
 grpcio-status==1.68.1
-httplib2==0.22.0
-idna==3.10
-prompt_toolkit==3.0.48
-proto-plus==1.25.0
-protobuf==5.29.0
-pyasn1==0.6.1
-pyasn1_modules==0.4.1
-pydantic==2.10.3
-pydantic_core==2.27.1
-pyparsing==3.2.0
+pip-chill==1.0.3
+prompt-toolkit==3.0.48
 python-dotenv==1.0.1
-requests==2.32.3
-rsa==4.9
-tqdm==4.67.1
-typing_extensions==4.12.2
-uritemplate==4.1.1
-urllib3==2.2.3
-wcwidth==0.2.13
+# annotated-types==0.7.0 # Installed as dependency for pydantic
+# cachetools==5.5.0 # Installed as dependency for google-auth
+# certifi==2024.8.30 # Installed as dependency for requests
+# charset-normalizer==3.4.0 # Installed as dependency for requests
+# google-ai-generativelanguage==0.6.10 # Installed as dependency for google-generativeai
+# google-api-core==2.23.0 # Installed as dependency for google-ai-generativelanguage, google-api-python-client, google-generativeai
+# google-api-python-client==2.154.0 # Installed as dependency for google-generativeai
+# google-auth==2.36.0 # Installed as dependency for google-ai-generativelanguage, google-api-core, google-api-python-client, google-auth-httplib2, google-generativeai
+# google-auth-httplib2==0.2.0 # Installed as dependency for google-api-python-client
+# googleapis-common-protos==1.66.0 # Installed as dependency for google-api-core, grpcio-status
+# grpcio==1.68.1 # Installed as dependency for grpcio-status
+# httplib2==0.22.0 # Installed as dependency for google-api-python-client, google-auth-httplib2
+# idna==3.10 # Installed as dependency for requests
+# proto-plus==1.25.0 # Installed as dependency for google-ai-generativelanguage, google-api-core
+# protobuf==5.29.0 # Installed as dependency for google-ai-generativelanguage, google-api-core, google-generativeai, googleapis-common-protos, grpcio-status, proto-plus
+# pyasn1==0.6.1 # Installed as dependency for pyasn1-modules, rsa
+# pyasn1-modules==0.4.1 # Installed as dependency for google-auth
+# pydantic==2.10.3 # Installed as dependency for google-generativeai
+# pydantic-core==2.27.1 # Installed as dependency for pydantic
+# pyparsing==3.2.0 # Installed as dependency for httplib2
+# requests==2.32.3 # Installed as dependency for google-api-core
+# rsa==4.9 # Installed as dependency for google-auth
+# tqdm==4.67.1 # Installed as dependency for google-generativeai
+# typing-extensions==4.12.2 # Installed as dependency for google-generativeai, pydantic, pydantic-core
+# uritemplate==4.1.1 # Installed as dependency for google-api-python-client
+# urllib3==2.2.3 # Installed as dependency for requests
+# wcwidth==0.2.13 # Installed as dependency for prompt-toolkit
