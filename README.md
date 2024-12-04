@@ -1,4 +1,4 @@
-# WorkBuddy
+# WorkBuddy (Currently Under Development)
 
 ***An LLM-based content moderator***
 
