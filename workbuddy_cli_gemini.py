@@ -17,6 +17,7 @@ session = PromptSession()
 # Define a key binding to accept input with Ctrl-Enter (Ctrl-M)
 bindings = KeyBindings()
 
+
 @bindings.add("c-d")
 def _(event):
     "Accept input on Ctrl-D."
@@ -38,10 +39,18 @@ generation_config = {
     "response_mime_type": "application/json",
 }
 
+
+def load_prompt(fname):
+    with open(fname, "r") as f:
+        return "".join(f.readlines())
+
+
+system_instruction = load_prompt("./prompts/system_instruction.txt")
+
 model = genai.GenerativeModel(
     model_name="gemini-1.5-flash",
     generation_config=generation_config,
-    system_instruction='Your task is to classify a webpage as "work" or "non-work", based on the page title, page body text, and page URL. This will be used to moderate content on a user\'s web browser using an extension, to help them stay focused on work-related activities only. Some of those fields may be empty. Input format is json, like: { "page_title" : "", "page_body" : "", page_url : "" } . You should only output a json containing the classification, and an explanation to the end-user for why the page belongs to that category. Output format: { "category" : "", "explanation" : ""} . ',
+    system_instruction=system_instruction,
 )
 
 
