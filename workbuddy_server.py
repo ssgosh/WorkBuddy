@@ -1,4 +1,5 @@
 import os
+import json
 import google.generativeai as genai
 from dotenv import load_dotenv
 from flask import Flask, request, jsonify, send_from_directory
@@ -34,15 +35,19 @@ def serve_html():
 
 @app.route('/classify', methods=['POST'])
 def classify_page():
-    data = request.json
-    prompt = data.get('prompt')
+    data = json.dumps(request.json, indent=4)
+    print(data, type(data))
+    # prompt = data.get('prompt')
     # system_prompt = data.get('system_prompt')
 
     chat_session = model.start_chat()
-    response = chat_session.send_message(prompt)
+    response = chat_session.send_message(data)
     
-    result = {"text": response.text}
-    return jsonify(result)
+    # result = {"text": response.text}
+    # print(result)
+    print(response.text, type(response.text))
+    # return jsonify(result)
+    return jsonify(response.text)
 
 if __name__ == '__main__':
     app.run(debug=True)
