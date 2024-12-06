@@ -37,17 +37,9 @@ def serve_html():
 def classify_page():
     data = json.dumps(request.json, indent=4)
     print(data, type(data))
-    # prompt = data.get('prompt')
-    # system_prompt = data.get('system_prompt')
-
-    # chat_session = model.start_chat()
-    # response = chat_session.send_message(data)
     response = model.generate_content(data)
     
-    # result = {"text": response.text}
-    # print(result)
     print(response.text, type(response.text))
-    # return jsonify(result)
     return jsonify(response.text)
 
 if __name__ == '__main__':
