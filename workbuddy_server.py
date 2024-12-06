@@ -40,8 +40,9 @@ def classify_page():
     # prompt = data.get('prompt')
     # system_prompt = data.get('system_prompt')
 
-    chat_session = model.start_chat()
-    response = chat_session.send_message(data)
+    # chat_session = model.start_chat()
+    # response = chat_session.send_message(data)
+    response = model.generate_content(data)
     
     # result = {"text": response.text}
     # print(result)
