@@ -1,3 +1,3 @@
-chrome.browserAction.onClicked.addListener((tab) => {
-  chrome.tabs.executeScript(tab.id, { file: 'content.js' });
-});
+// chrome.browserAction.onClicked.addListener((tab) => {
+//   chrome.tabs.executeScript(tab.id, { file: 'content.js' });
+// });
