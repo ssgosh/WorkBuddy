@@ -1,7 +1,7 @@
 // Function to send POST request
 async function classifyPage(data) {
     console.log('Calling classifyPage with data:', data);
-    // try {
+    try {
         const response = await fetch('http://localhost:5000/classify', {
             method: 'POST',
             headers: {
@@ -12,13 +12,15 @@ async function classifyPage(data) {
 
         // Get the response and parse it
         const result = await response.json();
-        console.log('Category:', result.category);
-        console.log('Explanation:', result.explanation);
+        console.log('Result:', result, typeof result);
+        const res1 = JSON.parse(result);
+        console.log('Category:', res1.category);
+        console.log('Explanation:', res1.explanation);
 
         // Here you can handle the response further as needed
-    // } catch (error) {
-    //     console.error('Error:', error);
-    // }
+    } catch (error) {
+        console.error('Error:', error);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
