@@ -19,12 +19,32 @@ async function classifyPage(data) {
 
         if (res1.category === 'non-work') {
             console.log('Category is non-work, hence blocking');
+            // window.location.href = chrome.runtime.getURL('block-page.html');
+            // document.getElementById('category').innerText = res1.category;
+            // document.getElementById('explanation').innerText = res1.explanation;
+            // // Also update the block-page.html with the page title and URL
+            // document.getElementById('page_title').innerText = pageTitle;
+            // document.getElementById('page_url').innerText = pageURL;
+
+            // Store the result in local storage
+            localStorage.setItem('blockPageData', JSON.stringify({
+                category: res1.category,
+                explanation: res1.explanation,
+                page_title: data.page_title,
+                page_url: data.page_url
+            }));
             window.location.href = chrome.runtime.getURL('block-page.html');
-            document.getElementById('category').innerText = res1.category;
-            document.getElementById('explanation').innerText = res1.explanation;
-            // Also update the block-page.html with the page title and URL
-            document.getElementById('page_title').innerText = pageTitle;
-            document.getElementById('page_url').innerText = pageURL;
+
+            // chrome.runtime.sendMessage({
+            //     category: result.category,
+            //     explanation: result.explanation,
+            //     page_title: data.page_title,
+            //     page_url: data.page_url
+            // }, function (response) {
+            //     console.log("Within sendMessage callback");
+            //     console.log(response);
+            //     // window.location.href = chrome.runtime.getURL('block-page.html');
+            // });
         } else {
             console.log('Category is work, hence not blocking');
         }

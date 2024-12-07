@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'"> -->
+
   <title>Blocked Page</title>
   <style>
     body {
@@ -15,27 +18,35 @@
       background-color: #f8d7da;
       color: #721c24;
     }
+
     .container {
       text-align: center;
     }
+
     h1 {
       font-size: 3em;
       margin-bottom: 0.5em;
     }
+
     p {
       font-size: 1.2em;
       margin-top: 0;
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <h1>Access Denied</h1>
     <p>This page is blocked because it is not related to work.</p>
-    <p id="category"></p>
-    <p id="explanation"></p>
-    <p id="page_title"></p>
-    <p id="page_url"></p>
+    <p id="category">Category</p>
+    <p id="explanation">Explanation</p>
+    <p id="page_title">Page Title</p>
+    <p id="page_url">Page URL</p>
   </div>
 </body>
+
+<script src="block-page.js">
+</script>
+
 </html>

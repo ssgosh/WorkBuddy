@@ -5,7 +5,8 @@
   "description": "Redirects to a block page when the button is clicked.",
   "permissions": [
     "activeTab",
-    "http://localhost/*"
+    "http://localhost/*",
+    "storage"
   ],
   "background": {
     "scripts": ["background.js"],
@@ -21,7 +22,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js"],
+      "js": ["content.js", "block-page.js"],
       "run_at": "document_start"
     }
   ]
