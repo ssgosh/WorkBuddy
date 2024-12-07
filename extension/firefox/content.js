@@ -17,7 +17,21 @@ async function classifyPage(data) {
         console.log('Category:', res1.category);
         console.log('Explanation:', res1.explanation);
 
-        // Here you can handle the response further as needed
+        if (res1.category === 'non-work') {
+            console.log('Category is non-work, hence blocking');
+            window.location.href = chrome.runtime.getURL('block-page.html');
+            document.getElementById('category').innerText = res1.category;
+            document.getElementById('explanation').innerText = res1.explanation;
+            // Also update the block-page.html with the page title and URL
+            document.getElementById('page_title').innerText = pageTitle;
+            document.getElementById('page_url').innerText = pageURL;
+        } else {
+            console.log('Category is work, hence not blocking');
+        }
+
+        // Return the category and explanation
+        return res1;
+
     } catch (error) {
         console.error('Error:', error);
     }
@@ -45,7 +59,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Call the function with the data
     console.log('Calling the function classifyPage');
     classifyPage(data);
-    //   window.location.href = chrome.runtime.getURL('block-page.html');
 });
 
 
