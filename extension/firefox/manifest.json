@@ -4,7 +4,9 @@
   "version": "1.0",
   "description": "Redirects to a block page when the button is clicked.",
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "http://localhost:5000/*",
+    "http://localhost/*"
   ],
   "background": {
     "scripts": ["background.js"],
