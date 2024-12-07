@@ -19,9 +19,32 @@
       color: #721c24;
     }
 
-    .container {
-      text-align: center;
+    .label {
+      font-weight: bold;
+      display: inline-block;
+      width: 150px;
+      /* Adjust the width as needed */
     }
+
+    .value {
+      display: inline-block;
+      margin-left: 10px;
+      /* Adjust the margin as needed */
+    }
+
+    .container {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      width: 80%;
+      margin: auto;
+      text-align: left;
+    }
+
+    /* .container {
+      text-align: center;
+    } */
 
     h1 {
       font-size: 3em;
@@ -36,14 +59,27 @@
 </head>
 
 <body>
+  <!-- <div class="container">
+    <h1>Access Denied</h1>
+    <p>This page is blocked because it is not related to work.</p>
+    Category: <p id="category"></p>
+    Explanation:<p id="explanation"></p>
+    Page Title:<p id="page_title"></p>
+    Page URL:<p id="page_url"></p>
+  </div> -->
   <div class="container">
     <h1>Access Denied</h1>
     <p>This page is blocked because it is not related to work.</p>
-    <p id="category">Category</p>
-    <p id="explanation">Explanation</p>
-    <p id="page_title">Page Title</p>
-    <p id="page_url">Page URL</p>
+    <div class="label">Category:</div>
+    <div class="value" id="category"></div><br>
+    <div class="label">Explanation:</div>
+    <div class="value" id="explanation"></div><br>
+    <div class="label">Page Title:</div>
+    <div class="value" id="page_title"></div><br>
+    <div class="label">Page URL:</div>
+    <div class="value" id="page_url"></div>
   </div>
+
 </body>
 
 <script src="block-page.js">
