@@ -27,13 +27,13 @@ async function classifyPage(data) {
             // document.getElementById('page_url').innerText = pageURL;
 
             // Store the result in local storage
-            localStorage.setItem('blockPageData', JSON.stringify({
-                category: res1.category,
-                explanation: res1.explanation,
-                page_title: data.page_title,
-                page_url: data.page_url
-            }));
-            window.location.href = chrome.runtime.getURL('block-page.html');
+            // localStorage.setItem('blockPageData', JSON.stringify({
+            //     category: res1.category,
+            //     explanation: res1.explanation,
+            //     page_title: data.page_title,
+            //     page_url: data.page_url
+            // }));
+            // window.location.href = chrome.runtime.getURL('block-page.html');
 
             // chrome.runtime.sendMessage({
             //     category: result.category,
@@ -42,9 +42,31 @@ async function classifyPage(data) {
             //     page_url: data.page_url
             // }, function (response) {
             //     console.log("Within sendMessage callback");
+            //     window.location.href = chrome.runtime.getURL('block-page.html');
             //     console.log(response);
-            //     // window.location.href = chrome.runtime.getURL('block-page.html');
             // });
+
+            // sessionStorage.setItem('blockPageData', JSON.stringify({
+            //     category: res1.category,
+            //     explanation: res1.explanation,
+            //     page_title: data.page_title,
+            //     page_url: data.page_url
+            // }));
+            // const bpdata = sessionStorage.getItem('blockPageData');
+            // console.log('Block Page Data:', bpdata);
+            // window.location.href = chrome.runtime.getURL('block-page.html');
+
+            browser.storage.local.set({
+                blockPageData: {
+                    category: res1.category,
+                    explanation: res1.explanation,
+                    page_title: data.page_title,
+                    page_url: data.page_url
+                }
+            }).then(() => {
+                window.location.href = browser.runtime.getURL('block-page.html');
+            });
+
         } else {
             console.log('Category is work, hence not blocking');
         }
