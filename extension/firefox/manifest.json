@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "WorkBuddy",
+  "version": "1.0",
+  "description": "Redirects to a block page when the button is clicked.",
+  "permissions": [
+    "activeTab",
+    "http://localhost/*",
+    "storage"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js", "block-page.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

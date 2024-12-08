@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'"> -->
+
+  <title>Blocked Page</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    .label {
+      font-weight: bold;
+      display: inline-block;
+      width: 150px;
+      /* Adjust the width as needed */
+    }
+
+    .value {
+      display: inline-block;
+      margin-left: 10px;
+      /* Adjust the margin as needed */
+    }
+
+    .container {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      width: 80%;
+      margin: auto;
+      text-align: left;
+    }
+
+    /* .container {
+      text-align: center;
+    } */
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-top: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div class="container">
+    <h1>Access Denied</h1>
+    <p>This page is blocked because it is not related to work.</p>
+    Category: <p id="category"></p>
+    Explanation:<p id="explanation"></p>
+    Page Title:<p id="page_title"></p>
+    Page URL:<p id="page_url"></p>
+  </div> -->
+  <div class="container">
+    <h1>Access Denied</h1>
+    <p>This page is blocked because it is not related to work.</p>
+    <div class="label">Category:</div>
+    <div class="value" id="category"></div><br>
+    <div class="label">Explanation:</div>
+    <div class="value" id="explanation"></div><br>
+    <div class="label">Page Title:</div>
+    <div class="value" id="page_title"></div><br>
+    <div class="label">Page URL:</div>
+    <div class="value" id="page_url"></div>
+  </div>
+
+</body>
+
+<script src="block-page.js">
+</script>
+
+</html>
