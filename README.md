@@ -5,7 +5,7 @@
 
 ***An LLM-based content moderator***
 
-Firefox extension to block webpages unrelated to work based on page title and URL. Uses Gemini API. 
+Firefox extension to block webpages unrelated to work based on page title and URL. Uses Google Gemini API. 
 
 ## Features
 
@@ -19,12 +19,13 @@ Firefox extension to block webpages unrelated to work based on page title and UR
 ```bash
 pip install -r requirements.txt
 ```
-2. Start the WorkBuddy server
+2. Put your Google Gemini API key in `.env` or as environment variable `GEMINI_API_KEY`
+3. Start the WorkBuddy server
 ```bash
 python workbuddy_server.py
 ```
-3. Go to `about:debugging` in Firefox -> `Load Temporary Addons` -> Select the `manifest.json` file under extension/firefox
-4. Open any non-work relaed webpage (e.g. reddit.com). WorkBuddy should block it
+4. Go to `about:debugging` in Firefox -> `Load Temporary Addons` -> Select the `manifest.json` file under extension/firefox
+5. Open any non-work relaed webpage (e.g. reddit.com). WorkBuddy should block it
 
 ## Customization
 
@@ -46,16 +47,23 @@ Change the text in `prompts/system_instruction.txt` to customize which webpages 
 
 ## Internals
 
-- Runs on Flask
-- Google Gemini API
+- Server runs on Flask
+- uses Google Gemini API 
 - No auth needed as of now
 - REST API
   - POST /classify, with json content, containing { "page_title" : "", "page_body" : "", page_url : "" }
   - In response, return {"category" : "", "explanation" : ""}
+- Workflow:
+  - WorkBuddy Firefox addon extracts title and URL upon page load, and sends it to the WorkBuddy server
+  - WorkBUddy server contacts Google Gemini via API and asks it to return page category and an explanation for the categorization, and relays it back to the addon
+  - The addon replaces current page with block page if category is "non-work", and displays the explanation on the block page
 
 ## CLI invocation for testing
 
-
+Interactive cli-based chat can be used for testing out the system prompt. Uses `prompt-toolkit`.
+```bash
+python workbuddy_cli_gemini.py
+```
 
 ## Attribution
 
