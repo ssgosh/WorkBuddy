@@ -7,6 +7,9 @@
 
 Firefox extension to block webpages unrelated to work based on page title and URL. Uses Google Gemini API. 
 
+![copilot_image_1733637667810](https://github.com/user-attachments/assets/3f0b32b5-1658-4473-b558-d93b0ae715c7)
+
+
 ## Features
 
 - Blocks webpages automatically on page load
