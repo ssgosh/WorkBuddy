@@ -5,43 +5,57 @@
 
 ***An LLM-based content moderator***
 
-Firefox extension to block webpages unrelated to work based on page title, URL, and content. Uses Gemini API. 
+Firefox extension to block webpages unrelated to work based on page title and URL. Uses Gemini API. 
 
-- [WorkBuddy](#workbuddy)
-  - [MVP Features](#mvp-features)
-    - [Extension](#extension)
-    - [Server](#server)
-  - [Even more minimal features (CLI invocation)](#even-more-minimal-features-cli-invocation)
+## Features
 
-## MVP Features
+- Blocks webpages automatically on page load
+- Displays a block page with the page URL and title, along with an explanation for blocking
+- For non-blocked pages, the explanation for not blocking is available in the developer console
 
-We'll use a client-server architecture.
-A local python server will receive page content/title.
-It'll use LangChain to connect with ChatGPT or some other LLM.
+## Installation & Usage
 
-### Extension
+1. Install python packages
+```bash
+pip install -r requirements.txt
+```
+2. Start the WorkBuddy server
+```bash
+python workbuddy_server.py
+```
+3. Go to `about:debugging` in Firefox -> `Load Temporary Addons` -> Select the `manifest.json` file under extension/firefox
+4. Open any non-work relaed webpage (e.g. reddit.com). WorkBuddy should block it
 
-- Initial feature
-  - Press a button to block the current page
-- Press the button to send the current page's title to the server
-  - Receive the category of the page ("work" or "non-work") and a one-sentence
-  explanation from the server
-  - Display a pop-up or a block page with the page category and the explanation
+## Customization
 
-### Server
+Change the text in `prompts/system_instruction.txt` to customize which webpages get blocked. Current contents are:
 
-- Run on Flask
+> Your task is to classify a webpage as "work" or "non-work", based on the page title, page body text, and page URL. This will be used to moderate content on a user's web browser using an extension, to help them stay focused on work-related activities only. Some of those fields may be empty. Input format is json, like: { "page_title" : "", "page_body" : "", page_url : "" } . You should only output a json containing the classification, and an explanation to the end-user for why the page belongs to that category. Output format: { "category" : "", "explanation" : ""} .
+>
+> The person is mainly involved in Computer Science and Artificial Intelligence related Research and Engineering, which may also include software development. Front pages of search engines or video search websites, such as Google and YouTube, are categorized as work. Relevant lecture videos are considered work, but pop-science videos are not. Forums such as Reddit or Twitter are considered non-work. However, discussion threads on very particular subjects may be considered work, such as a thread on matrix factorization techniques, or on enabling particular VSCode features. Gmail and other email sites are considered work. News sites, including Tech news, are considered non-work. Relevant academic publications are considered work.
+
+## Screenshot
+
+### Block Page
+![image](https://github.com/user-attachments/assets/82739cca-c238-49dc-b36b-14de79772d6b)
+
+### Developer Console messages for non-blocked page
+
+![image](https://github.com/user-attachments/assets/6458d2f1-eb4c-442d-a76b-97ff822ea092)
+
+
+## Internals
+
+- Runs on Flask
+- Google Gemini API
 - No auth needed as of now
 - REST API
   - POST /classify, with json content, containing { "page_title" : "", "page_body" : "", page_url : "" }
-  - In response, return {"category" : "", "explanation"}
+  - In response, return {"category" : "", "explanation" : ""}
 
-## Even more minimal features (CLI invocation)
+## CLI invocation for testing
 
-- Receive input from stdin.
-- Send request to OpenAI and classify as "work" or "non-work", and get explanation as json : { "category" : "", "explanation" : ""}
-- Print the category and the explanation
-- Continue receiving more input from the user
+
 
 ## Attribution
 
