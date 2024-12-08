@@ -1,13 +1,37 @@
-#  <img src="https://github.com/user-attachments/assets/d12ab57e-0456-42ee-bf44-f4c3d2810284" style="width:30px; height:auto;"> WorkBuddy 
+
+
+# <img src="https://github.com/user-attachments/assets/d12ab57e-0456-42ee-bf44-f4c3d2810284" style="width:30px; height:auto;"> WorkBuddy
 
 
 <!-- ![983049](https://github.com/user-attachments/assets/d12ab57e-0456-42ee-bf44-f4c3d2810284) -->
 
 ***An LLM-based content moderator***
 
-Firefox extension to block webpages unrelated to work based on page title and URL. Uses Google Gemini API. 
+Firefox extension to block webpages unrelated to work, based on page title and URL. Uses Google Gemini API. 
 
-![copilot_image_1733637667810](https://github.com/user-attachments/assets/3f0b32b5-1658-4473-b558-d93b0ae715c7)
+
+<!-- ![copilot_image_1733637667810](https://github.com/user-attachments/assets/3f0b32b5-1658-4473-b558-d93b0ae715c7) -->
+<img src="https://github.com/user-attachments/assets/3f0b32b5-1658-4473-b558-d93b0ae715c7" style="width:50%; height:auto; display:block; margin-left:auto; margin-right:auto;">
+
+
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [<img src="https://github.com/user-attachments/assets/d12ab57e-0456-42ee-bf44-f4c3d2810284" style="width:30px; height:auto;"> WorkBuddy](#img-srchttpsgithubcomuser-attachmentsassetsd12ab57e-0456-42ee-bf44-f4c3d2810284-stylewidth30px-heightauto-workbuddy)
+  - [Features](#features)
+  - [Installation & Usage](#installation--usage)
+  - [Customization](#customization)
+  - [Screenshot](#screenshot)
+    - [Block Page](#block-page)
+    - [Developer Console messages for non-blocked page](#developer-console-messages-for-non-blocked-page)
+  - [Internals](#internals)
+  - [CLI invocation for testing](#cli-invocation-for-testing)
+  - [Attribution](#attribution)
+
+<!-- /code_chunk_output -->
+
 
 
 ## Features
