@@ -1,5 +1,7 @@
-![983049](https://github.com/user-attachments/assets/d12ab57e-0456-42ee-bf44-f4c3d2810284)
-# WorkBuddy
+#  <img src="https://github.com/user-attachments/assets/d12ab57e-0456-42ee-bf44-f4c3d2810284" style="width:30px; height:auto;"> WorkBuddy 
+
+
+<!-- ![983049](https://github.com/user-attachments/assets/d12ab57e-0456-42ee-bf44-f4c3d2810284) -->
 
 ***An LLM-based content moderator***
 
