@@ -1,4 +1,5 @@
-# WorkBuddy (Currently Under Development)
+![983049](https://github.com/user-attachments/assets/d12ab57e-0456-42ee-bf44-f4c3d2810284)
+# WorkBuddy
 
 ***An LLM-based content moderator***
 
@@ -39,3 +40,7 @@ It'll use LangChain to connect with ChatGPT or some other LLM.
 - Send request to OpenAI and classify as "work" or "non-work", and get explanation as json : { "category" : "", "explanation" : ""}
 - Print the category and the explanation
 - Continue receiving more input from the user
+
+## Attribution
+
+<a href="https://www.flaticon.com/free-icons/angel" title="angel icons">Angel icons created by Freepik - Flaticon</a>
