@@ -5,7 +5,7 @@
 
 ***An LLM-based content moderator***
 
-Blocks webpages unrelated to work based on page content
+Firefox extension to block webpages unrelated to work based on page title, URL, and content. Uses Gemini API. 
 
 - [WorkBuddy](#workbuddy)
   - [MVP Features](#mvp-features)
