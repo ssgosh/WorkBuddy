@@ -1,7 +1,8 @@
 flask
 google-generativeai
 grpcio-status
-gunicorn
+packaging
 pip-chill
 prompt-toolkit
 python-dotenv
+waitress
