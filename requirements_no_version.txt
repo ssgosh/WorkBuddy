@@ -1,32 +1,7 @@
+flask
 google-generativeai
 grpcio-status
+gunicorn
 pip-chill
 prompt-toolkit
 python-dotenv
-# annotated-types # Installed as dependency for pydantic
-# cachetools # Installed as dependency for google-auth
-# certifi # Installed as dependency for requests
-# charset-normalizer # Installed as dependency for requests
-# google-ai-generativelanguage # Installed as dependency for google-generativeai
-# google-api-core # Installed as dependency for google-ai-generativelanguage, google-api-python-client, google-generativeai
-# google-api-python-client # Installed as dependency for google-generativeai
-# google-auth # Installed as dependency for google-ai-generativelanguage, google-api-core, google-api-python-client, google-auth-httplib2, google-generativeai
-# google-auth-httplib2 # Installed as dependency for google-api-python-client
-# googleapis-common-protos # Installed as dependency for google-api-core, grpcio-status
-# grpcio # Installed as dependency for grpcio-status
-# httplib2 # Installed as dependency for google-api-python-client, google-auth-httplib2
-# idna # Installed as dependency for requests
-# proto-plus # Installed as dependency for google-ai-generativelanguage, google-api-core
-# protobuf # Installed as dependency for google-ai-generativelanguage, google-api-core, google-generativeai, googleapis-common-protos, grpcio-status, proto-plus
-# pyasn1 # Installed as dependency for pyasn1-modules, rsa
-# pyasn1-modules # Installed as dependency for google-auth
-# pydantic # Installed as dependency for google-generativeai
-# pydantic-core # Installed as dependency for pydantic
-# pyparsing # Installed as dependency for httplib2
-# requests # Installed as dependency for google-api-core
-# rsa # Installed as dependency for google-auth
-# tqdm # Installed as dependency for google-generativeai
-# typing-extensions # Installed as dependency for google-generativeai, pydantic, pydantic-core
-# uritemplate # Installed as dependency for google-api-python-client
-# urllib3 # Installed as dependency for requests
-# wcwidth # Installed as dependency for prompt-toolkit
