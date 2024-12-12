@@ -4,7 +4,7 @@ from langchain_ollama import ChatOllama
 
 llm = ChatOllama(
     model="llama3.2:1b",
-    temperature=1,
+    temperature=0,
     #     "temperature": 1,
     # "top_p": 0.95,
     # "top_k": 40,
@@ -14,23 +14,29 @@ llm = ChatOllama(
     # format="json",
 )
 
-prompt = ChatPromptTemplate.from_messages(
-    [
-        (
-            "system",
-            "Translate the following sentence from {input_language} to {output_language}:",
-        ),
-        ("human", "{input}"),
-    ]
-)
+# prompt = ChatPromptTemplate.from_messages(
+#     [
+#         (
+#             "system",
+#             "Translate the following sentence from {input_language} to {output_language}:",
+#         ),
+#         ("human", "{input}"),
+#     ]
+# )
 
-chain = prompt | llm
-output = chain.invoke(
-    {
-        "input_language": "English",
-        "output_language": "Spanish",
-        "input": "I love programming.",
-    }
-)
+# chain = prompt | llm
+# output = chain.invoke(
+#     {
+#         "input_language": "English",
+#         "output_language": "Spanish",
+#         "input": "I love programming.",
+#     }
+# )
+
+messages = [
+    ("system", "You are a helpful translator. Translate the user sentence to French."),
+    ("human", "I love programming."),
+]
+output = llm.invoke(messages)
 
 print(output)
