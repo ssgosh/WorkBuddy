@@ -4,6 +4,7 @@ import json
 from dotenv import load_dotenv
 from flask import Flask, request, jsonify, send_from_directory
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_ollama import ChatOllama
 
 
 def load_prompt(fname):
@@ -13,25 +14,13 @@ def load_prompt(fname):
 load_dotenv()
 system_instruction = load_prompt("./prompts/system_instruction.txt")
 
-prompt = ChatPromptTemplate.from_messages(
-    [
-        (
-            "system",
-            "You are a helpful assistant that translates {input_language} to {output_language}.",
-        ),
-        ("human", "{input}"),
-    ]
+llm = ChatOllama(
+    model="llama3.2:3b",
+    temperature=0,
+    top_p=0.95,
+    top_k=40,
+    format="json",
 )
-
-chain = prompt | llm
-chain.invoke(
-    {
-        "input_language": "English",
-        "output_language": "German",
-        "input": "I love programming.",
-    }
-)
-
 
 app = Flask(__name__)
 
@@ -43,10 +32,14 @@ def serve_html():
 def classify_page():
     data = json.dumps(request.json, indent=4)
     print(data, type(data))
+    messages = [
+        ("system", system_instruction), data
+    ]
+    output = llm.invoke(messages)
     # response = model.generate_content(data)
     
-    print(response.text, type(response.text))
-    return jsonify(response.text)
+    print(output, type(output))
+    return jsonify(output.content)
 
 if __name__ == '__main__':
     app.run(debug=True)

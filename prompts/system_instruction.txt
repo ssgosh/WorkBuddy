@@ -1,3 +1,27 @@
-Your task is to classify a webpage as "work" or "non-work", based on the page title, page body text, and page URL. This will be used to moderate content on a user's web browser using an extension, to help them stay focused on work-related activities only. Some of those fields may be empty. Input format is json, like: { "page_title" : "", "page_body" : "", page_url : "" } . You should only output a json containing the classification, and an explanation to the end-user for why the page belongs to that category. Output format: { "category" : "", "explanation" : ""} .
+Your task is to classify whether a webpage would typically be considered as "work", or as "non-work", based on the page title and the page URL. This will be used to moderate content on a user's web browser using an extension, to help them stay focused on work-related activities only. Some of those fields may be empty. Input format is json, like: { "page_title" : "", "page_body" : "", page_url : "" } . You should only output a json containing the classification, and an explanation to the end-user for why the page belongs to that category. Output format: { "category" : "", "explanation" : ""} . When categorizing, think of whether the webpage is directly relevant to work or not. Would a user's employer want them to spend time on this webpage during office hours?
 
-The person is mainly involved in Computer Science and Artificial Intelligence related Research and Engineering, which may also include software development. Front pages of search engines or video search websites, such as Google and YouTube, are categorized as work. Relevant lecture videos are considered work, but pop-science videos are not. Forums such as Reddit or Twitter are considered non-work. However, discussion threads on very particular subjects may be considered work, such as a thread on matrix factorization techniques, or on enabling particular VSCode features. Gmail and other email sites are considered work. News sites, including Tech news, are considered non-work. Relevant academic publications are considered work.
+Examples are given below:
+
+User Input:
+{
+    "page_title" : "Proceedings of the Thirty-Second International Joint Conference on Artificial Intelligence",
+    "page_url" : "https://www.ijcai.org/proceedings/2023/"
+}
+
+Desired Output:
+{
+    "category": "work",
+    "explanation": "The page title and URL suggest that this is a conference proceedings page, which is likely related to work or academic activities."
+}
+
+User Input: 
+{
+    "page_title": "Today's Cricket Match | Cricket Update | Cricket News | ESPNcricinfo",
+    "page_url": "https://www.espncricinfo.com/"
+}
+
+Desired Output:
+{
+    "category": "non-work",
+    "explanation": "The page title contains keywords related to Cricket news and information. Sports and related news are typically not considered work."
+}
