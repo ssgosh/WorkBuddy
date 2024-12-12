@@ -1,31 +1,37 @@
 import os
 import json
-import google.generativeai as genai
+# import google.generativeai as genai
 from dotenv import load_dotenv
 from flask import Flask, request, jsonify, send_from_directory
+from langchain_core.prompts import ChatPromptTemplate
+
 
 def load_prompt(fname):
     with open(fname, "r") as f:
         return "".join(f.readlines())
 
 load_dotenv()
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-
-generation_config = {
-    "temperature": 1,
-    "top_p": 0.95,
-    "top_k": 40,
-    "max_output_tokens": 8192,
-    "response_mime_type": "application/json",
-}
-
 system_instruction = load_prompt("./prompts/system_instruction.txt")
 
-model = genai.GenerativeModel(
-    model_name="gemini-1.5-flash",
-    generation_config=generation_config,
-    system_instruction=system_instruction,
+prompt = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system",
+            "You are a helpful assistant that translates {input_language} to {output_language}.",
+        ),
+        ("human", "{input}"),
+    ]
 )
+
+chain = prompt | llm
+chain.invoke(
+    {
+        "input_language": "English",
+        "output_language": "German",
+        "input": "I love programming.",
+    }
+)
+
 
 app = Flask(__name__)
 
@@ -37,7 +43,7 @@ def serve_html():
 def classify_page():
     data = json.dumps(request.json, indent=4)
     print(data, type(data))
-    response = model.generate_content(data)
+    # response = model.generate_content(data)
     
     print(response.text, type(response.text))
     return jsonify(response.text)
