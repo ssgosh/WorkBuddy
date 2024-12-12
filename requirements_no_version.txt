@@ -1,7 +1,8 @@
 flask
 google-generativeai
 grpcio-status
-packaging
+langchain
+langchain-ollama
 pip-chill
 prompt-toolkit
 python-dotenv
