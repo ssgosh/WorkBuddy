@@ -7,7 +7,7 @@
 
 ***An LLM-based content moderator***
 
-Firefox extension to block webpages unrelated to work, based on page title and URL. Uses Google Gemini API. 
+Firefox extension to block webpages unrelated to work, based on page title and URL. Local LLMs with Ollama and Langchain to ensure your browsing history never leaves your device, for complete privacy. Google Gemini also supported.
 
 
 <!-- ![copilot_image_1733637667810](https://github.com/user-attachments/assets/3f0b32b5-1658-4473-b558-d93b0ae715c7) -->
@@ -21,6 +21,7 @@ Firefox extension to block webpages unrelated to work, based on page title and U
 
 - [<img src="https://github.com/user-attachments/assets/d12ab57e-0456-42ee-bf44-f4c3d2810284" style="width:30px; height:auto;"> WorkBuddy](#img-srchttpsgithubcomuser-attachmentsassetsd12ab57e-0456-42ee-bf44-f4c3d2810284-stylewidth30px-heightauto-workbuddy)
   - [Features](#features)
+    - [Updates](#updates)
   - [Installation & Usage](#installation--usage)
   - [Customization](#customization)
   - [Screenshot](#screenshot)
@@ -39,6 +40,13 @@ Firefox extension to block webpages unrelated to work, based on page title and U
 - Blocks webpages automatically on page load
 - Displays a block page with the page URL and title, along with an explanation for blocking
 - For non-blocked pages, the explanation for not blocking is available in the developer console
+
+### Updates
+
+- Now works with **local LLMs**. Your browsing history stays **completely private!**
+  - Tested with LLama 3.2:1b and 3.2:3b
+  - Implemented using Ollama and Langchain
+  - No GPU required! Tested on a consumer-grade Intel CPU laptop.
 
 ## Installation & Usage
 
